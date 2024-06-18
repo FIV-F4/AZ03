@@ -32,6 +32,7 @@ print(random_array)
 """
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 mean = 0 # Среднее значение
 std_dev = 1 # Стандартное отклонение
@@ -49,4 +50,16 @@ print(random_arrayY)
 plt.scatter(random_arrayX, random_arrayY)
 plt.show()
 
+file_path = 'cleaned_prices_from_divanru.csv'
+df = pd.read_csv(file_path)
 
+# Calculate the average price
+average_price = df['Price'].mean()
+print(f"Средняя цена на диваны: {average_price:.2f} рублей")
+
+# Plot the histogram of prices
+plt.hist(df['Price'], bins=10, edgecolor='black')
+plt.title('Распределение цен на диваны')
+plt.xlabel('Цена (рубли)')
+plt.ylabel('Количество')
+plt.show()
