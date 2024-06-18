@@ -13,7 +13,7 @@ def get_html_content(url):
     soup = BeautifulSoup(response.content, 'html.parser')
     return soup.prettify()
 
-url = 'https://jira.petrovich.tech/secure/CreateIssue!default.jspa'
+url = 'https://www.divan.ru/category/divany'
 html_content = get_html_content(url)
 if html_content:
     with open('divan_ru_page.html', 'w', encoding='utf-8') as file:
